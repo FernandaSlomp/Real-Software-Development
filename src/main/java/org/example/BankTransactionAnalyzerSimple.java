@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.model.BankTransaction;
+import org.example.utils.BankStatementCSVParser;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,11 +19,20 @@ import java.util.List;
 public class BankTransactionAnalyzerSimple
 {
     private static final String RESOURCES = "src/main/resources/";
-
     public static void main( String[] args ) throws IOException {
 
+        // inicio nada indicado
         valorTotalTodosMeses();
         valorTotalJaneiro();
+
+        // separando responsabilidades (SRP)
+
+        final Path path = Paths.get(RESOURCES + "bank-data-simple.csv");
+        final List<String> lines = Files.readAllLines(path);
+        BankStatementCSVParser bankStatementCSVParser = new BankStatementCSVParser();
+
+        List<BankTransaction> bankTransactions = bankStatementCSVParser.parseLinesFromCSV(lines);
+        System.out.println("bankTransactions " + bankTransactions);
 
     }
 
