@@ -1,5 +1,6 @@
 package org.example.utils;
 
+import org.example.interfaces.BankStatementParser;
 import org.example.model.BankTransaction;
 
 import java.time.LocalDate;
@@ -7,14 +8,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankStatementCSVParser {
+public class BankStatementCSVParser implements BankStatementParser {
 
     public BankStatementCSVParser() {
     }
 
     static final DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-    private static BankTransaction parseFromCSV(String line){
+    @Override
+    public BankTransaction parseFrom(String line){
 
         String[] colunas = line.split(",");
         LocalDate date = LocalDate.parse(colunas[0], formatterDate);
@@ -23,17 +24,26 @@ public class BankStatementCSVParser {
 
         return new BankTransaction(date, amount, description);
     }
-
-    public List<BankTransaction> parseLinesFromCSV(List<String> lines) {
+    @Override
+    public List<BankTransaction> parseLinesFrom(List<String> lines) {
 
         final List<BankTransaction> bankTransactions = new ArrayList<>();
 
         for(final String line: lines){
-            bankTransactions.add(parseFromCSV(line));
+            bankTransactions.add(parseFrom(line));
         }
 
         return bankTransactions;
     }
 
 
+//    @Override
+//    public BankTransaction parseFrom(String line) {
+//        return null;
+//    }
+
+//    @Override
+//    public List<BankTransaction> parseLinesFrom(List<String> lines) {
+//        return null;
+//    }
 }
