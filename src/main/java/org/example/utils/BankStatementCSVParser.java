@@ -36,14 +36,4 @@ public class BankStatementCSVParser implements BankStatementParser {
         return bankTransactions;
     }
 
-
-//    @Override
-//    public BankTransaction parseFrom(String line) {
-//        return null;
-//    }
-
-//    @Override
-//    public List<BankTransaction> parseLinesFrom(List<String> lines) {
-//        return null;
-//    }
 }
