@@ -1,9 +1,12 @@
 package org.example;
 
+import org.example.interfaces.BankTransactionFilter;
+import org.example.interfaces.BankTransactionSummarizer;
 import org.example.model.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -67,5 +70,24 @@ public class BankStatementProcessor {
 
         return bankTransactions.stream()
                 .collect(Collectors.groupingBy(transaction -> transaction.getDate().getMonth()));
+    }
+
+    public List<BankTransaction> findTransactions(BankTransactionFilter filter) {
+         List<BankTransaction> result = new ArrayList<>();
+        for ( BankTransaction bankTransaction : bankTransactions){
+            if (filter.test(bankTransaction)){
+                result.add(bankTransaction);
+            }
+        }
+
+        return result;
+    }
+
+    public double summarizeTransactions(BankTransactionSummarizer summarizer) {
+        double result = 0;
+        for ( BankTransaction bankTransaction : bankTransactions){
+            result = summarizer.summarize(result, bankTransaction);
+        }
+        return result;
     }
 }
