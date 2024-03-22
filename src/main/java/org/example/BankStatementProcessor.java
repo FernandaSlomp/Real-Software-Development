@@ -3,11 +3,13 @@ package org.example;
 import org.example.interfaces.BankTransactionFilter;
 import org.example.interfaces.BankTransactionSummarizer;
 import org.example.model.BankTransaction;
+import org.example.model.SummaryStatistics;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -89,5 +91,17 @@ public class BankStatementProcessor {
             result = summarizer.summarize(result, bankTransaction);
         }
         return result;
+    }
+
+    public SummaryStatistics summarizeTransactions() {
+
+        final DoubleSummaryStatistics doubleSummaryStatistics = bankTransactions.stream()
+                .mapToDouble(BankTransaction::getAmount)
+                .summaryStatistics();
+
+        return new SummaryStatistics(doubleSummaryStatistics.getSum(),
+                doubleSummaryStatistics.getMax(),
+                doubleSummaryStatistics.getMin(),
+                doubleSummaryStatistics.getAverage());
     }
 }

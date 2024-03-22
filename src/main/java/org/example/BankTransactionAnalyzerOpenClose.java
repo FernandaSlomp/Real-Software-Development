@@ -1,8 +1,12 @@
 package org.example;
 
 import org.example.interfaces.BankTransactionFilter;
+import org.example.interfaces.BankTransactionSummarizer;
+import org.example.interfaces.Exporter;
 import org.example.model.BankTransaction;
+import org.example.model.SummaryStatistics;
 import org.example.utils.BankStatementCSVParser;
+import org.example.utils.HtmlExporter;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -35,6 +39,14 @@ public class BankTransactionAnalyzerOpenClose
 
         System.out.println("All transactions in february and > 1000 using Functional Interface implements "
                 + functionalInterfaceImplementation(bankTransactions));
+
+
+        // criação da interface Exporter -> Ela está alinhada com a ideia do open/close
+        // Caso tenha que trocar para outro tipo de exportador
+        System.out.println("Exports by html "
+                + interfaceExporter(bankTransactions));
+
+
     }
 
     private static List<BankTransaction> functionalInterfaceLambda(final List<BankTransaction> bankTransactions) {
@@ -50,9 +62,16 @@ public class BankTransactionAnalyzerOpenClose
     private static List<BankTransaction> functionalInterfaceImplementation(final List<BankTransaction> bankTransactions) {
         BankStatementProcessor processor = new BankStatementProcessor(bankTransactions);
 
-        BankTransactionIsFebruaryAndExpensive bankTransactionIsFebruaryAndExpensive = new BankTransactionIsFebruaryAndExpensive();
+        BankTransactionIsFebruaryAndExpensive bankTransactionIsFebruaryAndExpensive
+                = new BankTransactionIsFebruaryAndExpensive();
         return processor.findTransactions(bankTransactionIsFebruaryAndExpensive);
 
     }
 
+    private static String interfaceExporter(final List<BankTransaction> bankTransactions) {
+        BankStatementProcessor processor = new BankStatementProcessor(bankTransactions);
+        SummaryStatistics sE = processor.summarizeTransactions();
+        final Exporter exporter = new HtmlExporter();
+        return exporter.export(sE);
+    }
 }
