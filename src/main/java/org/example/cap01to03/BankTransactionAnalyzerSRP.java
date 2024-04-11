@@ -1,15 +1,13 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.model.BankTransaction;
-import org.example.utils.BankStatementCSVParser;
+import org.example.cap01to03.model.BankTransaction;
+import org.example.cap01to03.utils.BankStatementCSVParser;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 

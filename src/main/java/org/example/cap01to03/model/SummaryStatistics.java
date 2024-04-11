@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.cap01to03.model;
 
 public class SummaryStatistics {
     private final double sum;

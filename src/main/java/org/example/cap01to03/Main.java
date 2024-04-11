@@ -1,7 +1,7 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.interfaces.BankStatementParser;
-import org.example.utils.BankStatementCSVParser;
+import org.example.cap01to03.interfaces.BankStatementParser;
+import org.example.cap01to03.utils.BankStatementCSVParser;
 
 import java.io.IOException;
 

@@ -1,12 +1,11 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.interfaces.BankTransactionFilter;
-import org.example.interfaces.BankTransactionSummarizer;
-import org.example.interfaces.Exporter;
-import org.example.model.BankTransaction;
-import org.example.model.SummaryStatistics;
-import org.example.utils.BankStatementCSVParser;
-import org.example.utils.HtmlExporter;
+import org.example.cap01to03.interfaces.BankTransactionFilter;
+import org.example.cap01to03.interfaces.Exporter;
+import org.example.cap01to03.model.BankTransaction;
+import org.example.cap01to03.model.SummaryStatistics;
+import org.example.cap01to03.utils.BankStatementCSVParser;
+import org.example.cap01to03.utils.HtmlExporter;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Month;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Hello world!

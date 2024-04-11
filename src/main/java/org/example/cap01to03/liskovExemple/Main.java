@@ -1,10 +1,4 @@
-package org.example.liskovExemple;
-
-import org.example.BankStatementAnalyzerCoupling;
-import org.example.interfaces.BankStatementParser;
-import org.example.utils.BankStatementCSVParser;
-
-import java.io.IOException;
+package org.example.cap01to03.liskovExemple;
 
 /**
  * Hello world!

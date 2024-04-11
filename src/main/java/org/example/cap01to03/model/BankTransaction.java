@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.cap01to03.model;
 import java.time.LocalDate;
 import java.util.Objects;
 

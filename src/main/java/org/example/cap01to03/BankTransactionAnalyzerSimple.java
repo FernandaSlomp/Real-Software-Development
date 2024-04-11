@@ -1,7 +1,4 @@
-package org.example;
-
-import org.example.model.BankTransaction;
-import org.example.utils.BankStatementCSVParser;
+package org.example.cap01to03;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,9 +1,9 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.interfaces.BankTransactionFilter;
-import org.example.interfaces.BankTransactionSummarizer;
-import org.example.model.BankTransaction;
-import org.example.model.SummaryStatistics;
+import org.example.cap01to03.interfaces.BankTransactionFilter;
+import org.example.cap01to03.interfaces.BankTransactionSummarizer;
+import org.example.cap01to03.model.BankTransaction;
+import org.example.cap01to03.model.SummaryStatistics;
 
 import java.time.LocalDate;
 import java.time.Month;

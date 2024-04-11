@@ -1,7 +1,8 @@
 package org.example;
 
-import org.example.interfaces.BankTransactionFilter;
-import org.example.model.BankTransaction;
+import org.example.cap01to03.BankStatementProcessor;
+import org.example.cap01to03.interfaces.BankTransactionFilter;
+import org.example.cap01to03.model.BankTransaction;
 import org.junit.Test;
 
 import java.time.LocalDate;

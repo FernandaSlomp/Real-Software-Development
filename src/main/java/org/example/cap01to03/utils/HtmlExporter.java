@@ -1,7 +1,7 @@
-package org.example.utils;
+package org.example.cap01to03.utils;
 
-import org.example.interfaces.Exporter;
-import org.example.model.SummaryStatistics;
+import org.example.cap01to03.interfaces.Exporter;
+import org.example.cap01to03.model.SummaryStatistics;
 
 public class HtmlExporter implements Exporter {
     @Override

@@ -1,8 +1,9 @@
 package org.example;
 
-import org.example.interfaces.BankStatementParser;
-import org.example.model.BankTransaction;
-import org.example.utils.BankStatementCSVParser;
+import org.example.cap01to03.BankStatementProcessor;
+import org.example.cap01to03.interfaces.BankStatementParser;
+import org.example.cap01to03.model.BankTransaction;
+import org.example.cap01to03.utils.BankStatementCSVParser;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

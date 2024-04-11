@@ -1,7 +1,7 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.interfaces.BankTransactionFilter;
-import org.example.model.BankTransaction;
+import org.example.cap01to03.interfaces.BankTransactionFilter;
+import org.example.cap01to03.model.BankTransaction;
 
 import java.time.Month;
 

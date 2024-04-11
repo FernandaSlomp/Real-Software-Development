@@ -1,10 +1,7 @@
-package org.example;
+package org.example.cap01to03;
 
-import org.example.interfaces.BankTransactionFilter;
-import org.example.interfaces.BankTransactionSummarizer;
-import org.example.model.BankTransaction;
-
-import java.time.Month;
+import org.example.cap01to03.interfaces.BankTransactionSummarizer;
+import org.example.cap01to03.model.BankTransaction;
 
 public class SummaryStatisticsSum implements BankTransactionSummarizer {
 

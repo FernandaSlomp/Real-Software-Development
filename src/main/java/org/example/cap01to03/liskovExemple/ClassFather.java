@@ -1,4 +1,4 @@
-package org.example.liskovExemple;
+package org.example.cap01to03.liskovExemple;
 
 public class ClassFather {
 
